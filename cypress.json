@@ -1,0 +1,15 @@
+{
+  "baseUrl": "https://uxipd1wtje.execute-api.us-east-1.amazonaws.com/dev/investment/search",
+  "baseUrlQA": "https://u4dpt6zstl.execute-api.us-east-1.amazonaws.com/qa/investment/search",
+  "ignoreTestFiles": "*.js",
+  "screenshotOnRunFailure": true,
+  "testFiles": "**/*.feature",
+  "video": false,
+  "env": {
+    "TAGS": "not (@manual or @tobeautomated or @knownbug)"
+  },
+  "retries": {
+    "openMode": 0,
+    "runMode": 0
+  }
+}

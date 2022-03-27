@@ -1,0 +1,7 @@
+{
+  "investmentTypeLabel" : ".col-md-2 > label",
+  "investmentTypeDropdown" : "#investment-type",
+  "investmentTypeSearchBox" : "#investment-search",
+  "searchButton" : "#btn-search",
+  "errorMsgLabel" : ".text-cetner"
+}

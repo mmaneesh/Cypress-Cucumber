@@ -1,0 +1,45 @@
+{
+  "name": "powerapp_automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "e2e:open": "cypress open",
+    "e2e:run": "cypress run",
+    "e2e:run:chrome": "cypress run --browser chrome --headless",
+    "e2e:run:firefox": "cypress run --browser firefox --headless",
+    "e2e:tags": "cypress-tags run --env \"TAGS=@manual\"",
+    "cleanup": "if exist cypress\\reports rimraf /S/Q cypress\\reports && if exist cypress\\screenshots rimraf /S/Q cypress\\screenshots && if exist cypress\\videos rimraf /S/Q cypress\\videos",
+    "clean:up": "if exist cypress\\reports rmdir /S/Q cypress\\reports && if exist cypress\\screenshots rmdir /S/Q cypress\\screenshots && if exist cypress\\videos rmdir /S/Q cypress\\videos",
+    "pretest": "npm run cleanup",
+    "posttest": "node cucumber-html-report.js",
+    "test": "npm run e2e:run || npm run posttest",
+    "test:chrome": "npm run pretest & npm run e2e:run --browser chrome --headless & npm run posttest",
+    "test:firefox": "npm run pretest & npm run e2e:run --browser firefox --headless & npm run posttest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cucumber-html-reporter": "^5.5.0",
+    "cypress": "^9.5.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-mochawesome-reporter": "^2.3.0",
+    "mocha": "^9.2.0",
+    "mochawesome": "^7.0.1",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.0.1",
+    "multiple-cucumber-html-reporter": "^1.19.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/reports/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  },
+  "dependencies": {
+    "rimraf": "^3.0.2"
+  }
+}
